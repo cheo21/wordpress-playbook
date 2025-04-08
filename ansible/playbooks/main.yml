@@ -1,0 +1,8 @@
+- name: Configurar WordPress y MySQL
+  hosts: all
+  become: yes
+  vars_files:
+    - ../group_vars/all.yml
+  roles:
+    - geerlingguy.mysql
+    - wordpress

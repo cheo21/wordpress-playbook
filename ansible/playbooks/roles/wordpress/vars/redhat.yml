@@ -1,0 +1,10 @@
+apache_package: httpd
+apache_path: /etc/httpd/conf.d/
+php_packages:
+  - php
+  - php-mysqlnd
+  - php-gd
+  - php-cli
+  - php-curl
+web_user: apache
+web_group: apache

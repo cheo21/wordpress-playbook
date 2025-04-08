@@ -1,0 +1,16 @@
+wp_version: "6.7.2"
+mysql_root_password: "rootpass"
+wordpress_db_name: "wordpress_db"
+wordpress_db_user: "wordpress_user"
+wordpress_db_password: "wordpress_pass"
+
+mysql_databases:
+  - name: wordpress_db
+    encoding: utf8
+    collation: utf8_general_ci
+
+mysql_users:
+  - name: wordpress_user
+    host: "%"
+    password: "wordpress_pass"
+    priv: "wordpress_db.*:ALL"

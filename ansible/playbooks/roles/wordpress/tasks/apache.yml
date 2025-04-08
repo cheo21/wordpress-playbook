@@ -1,0 +1,35 @@
+- name: Instalar Apache
+  ansible.builtin.package:
+    name: "{{ apache_package }}"
+    state: present
+  become: yes
+  
+- name: Iniciar y habilitar Apache
+  ansible.builtin.service:
+    name: "{{ apache_package }}"
+    state: started
+    enabled: yes
+  become: yes
+
+- name: Copiar configuración de Apache para WordPress
+  template:
+    src: wordpress.conf.j2
+    dest: "{{ apache_path }}wordpress.conf"
+  notify: Reiniciar Apache
+
+- name: Habilitar sitio de WordPress
+  command: a2ensite wordpress.conf
+  notify: Reiniciar Apache
+  when: ansible_os_family == "Debian"
+
+
+- name: Asegurarse de que mod_rewrite esté habilitado
+  command: a2enmod rewrite
+  notify: Reiniciar Apache
+  when: ansible_os_family == "Debian"
+
+- name: Deshabilitar sitio por defecto
+  command: a2dissite 000-default.conf
+  notify: Reiniciar Apache
+  when: ansible_os_family == "Debian"
+
