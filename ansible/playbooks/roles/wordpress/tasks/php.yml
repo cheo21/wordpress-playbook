@@ -1,4 +1,4 @@
-- name: Instalar PHP en Debian/Ubuntu
+- name: Instalar PHP
   ansible.builtin.package:
     name: "{{ php_packages }}"
     state: present

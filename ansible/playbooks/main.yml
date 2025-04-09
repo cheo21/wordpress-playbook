@@ -1,6 +1,7 @@
 - name: Configurar WordPress y MySQL
   hosts: all
   become: yes
+  gather_facts: true
   vars_files:
     - ../group_vars/all.yml
   roles:

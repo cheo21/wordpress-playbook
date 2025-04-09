@@ -8,3 +8,4 @@ php_packages:
   - php-curl
 web_user: www-data
 web_group: www-data
+apache_log_dir: /var/log/apache2/

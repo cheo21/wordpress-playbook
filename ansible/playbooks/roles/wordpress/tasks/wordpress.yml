@@ -34,3 +34,10 @@
     owner: "{{ web_user }}"
     group: "{{ web_group }}"
     mode: '0644'
+
+- name: Ajustar contexto SELinux para WordPress (solo en RHEL/CentOS/Rocky)
+  command: chcon -Rt httpd_sys_content_t /srv/wordpress
+  when:
+    - ansible_os_family == "RedHat"
+    - ansible_selinux.status == "enabled"
+  become: true
