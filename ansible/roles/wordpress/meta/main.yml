@@ -19,7 +19,3 @@ galaxy_info:
         - "20.04"
         - "22.04"
 
-
-dependencies:
-  - role: geerlingguy.mysql
-
