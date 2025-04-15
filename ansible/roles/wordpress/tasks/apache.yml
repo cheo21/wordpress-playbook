@@ -1,15 +1,22 @@
+- name: Actualizar cache de paquetes (apt)
+  apt:
+    update_cache: yes
+  when: ansible_os_family == 'Debian'
+
 - name: Instalar Apache
   ansible.builtin.package:
     name: "{{ apache_package }}"
     state: present
+    update_cache: yes
   become: yes
   
 - name: Iniciar y habilitar Apache
   ansible.builtin.service:
     name: "{{ apache_package }}"
-    state: started
+    state: restarted
     enabled: yes
   become: yes
+
 
 - name: Copiar configuración de Apache para WordPress
   template:

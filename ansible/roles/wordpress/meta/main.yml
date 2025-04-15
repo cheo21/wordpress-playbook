@@ -1,0 +1,25 @@
+galaxy_info:
+  role_name: wordpress
+  namespace: cheoguerrero  # Cambiá por tu usuario de Ansible Galaxy
+  author: José Guerrero
+  description: Role para instalar y configurar WordPress
+  license: MIT
+  min_ansible_version: "2.12"
+  platforms:
+    - name: EL
+      versions:
+        - "8"
+        - "9"
+    - name: Debian
+      versions:
+        - "11"
+        - "12"
+    - name: Ubuntu
+      versions:
+        - "20.04"
+        - "22.04"
+
+
+dependencies:
+  - role: geerlingguy.mysql
+
