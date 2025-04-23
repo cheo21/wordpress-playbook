@@ -23,3 +23,14 @@ Este playbook depende de roles definidos en el archivo `requirements.yml`. Para 
 
 ```bash
 ansible-galaxy install -r ansible/requirements/roles.yml    
+```
+
+## 🚀 Ejecución del Playbook
+
+Podés ejecutar el playbook con:
+
+```bash
+ansible-playbook -i inventario playbook.yml
+```
+
+🔧 Asegurate de tener tu archivo de inventario correctamente configurado y acceso SSH a los hosts.
